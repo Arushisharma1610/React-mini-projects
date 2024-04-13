@@ -1,23 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
 
 function App() {
+
+  const[count, setCount]= useState(0);
+
+  function decrementHandler(){
+    setCount(count-1);
+  }
+
+  function incrementHandler(){
+    setCount(count+1);
+  }
+
+  function resetHandler(){
+    setCount(0);
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='w-[100vw] h-[100vh] flex justify-center items-center bg-[#262c40] flex-col gap-10'>
+      <div className='text-[#e7f0f8] font-medium text-2xl'>Increment & Decrement</div>
+      <div className='bg-[#414e6e] flex justify-center gap-12 py-3 rounded-sm text-[25px] text-[#e7f0f8]' >
+        <button onClick={decrementHandler} className='border-r-2 text-center w-20 border-[#2345] text-5xl'>
+          -
+        </button>
+        <div className='font-bold gap-12 text-4xl'>
+          {count}
+        </div>
+        <button onClick={incrementHandler} className='border-l-2 text-center w-20 border-[#2345] text-5xl'>
+          +
+        </button>
+      </div>
+      <button onClick={resetHandler} className='bg-[#03980d] text-white px-5 py-2 rounded-sm text-lg'>
+      Reset
+      </button>
     </div>
   );
 }
