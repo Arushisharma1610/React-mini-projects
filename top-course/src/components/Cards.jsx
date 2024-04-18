@@ -1,28 +1,44 @@
-import React from 'react'
-import Card from "./Card"
+import React, { useState } from "react";
+import Card from "./Card";
 
-const Cards = ({courses}) => {
+const Cards = (props) => {
+  const courses = props.courses;
+  const category = props.category;
+  // console.log(Object.values(courses)[0][0].title);
+  console.log(Object.values(courses));
+  console.log((courses)["Business"]);
 
-    let allCourses = [];
-    const getCourses = () => {
-        Object.values(courses).forEach((coursesCategory) => {
-            coursesCategory.forEach((courses) => {
-                allCourses.push(courses);
-            })
-        })
+  const [likedCourses, setLikedCourses] = useState([]);
 
-        return allCourses;
+  function getAllCourse() {
+    if (category === "All") {
+      let allCourse = [];
+      Object.values(courses).forEach((course) => {
+        // console.log(course)
+        course.forEach((courseData) => {
+          // console.log(courseData);
+          allCourse.push(courseData);
+        });
+      });
+      return allCourse;
     }
+    else
+    {
+      return courses[category];
+    }
+  }
 
-
+  // console.log(getAllCourse());
 
   return (
-    <div>
-        {getCourses().map ( (course) => {
-          return   <Card course = {course}/>
-        })}
+    <div className="flex flex-wrap justify-center gap-4 mb-4">
+      {
+        getAllCourse()?.map((course) => {
+          return (<Card key={course.id} course={course} likedCourses={likedCourses} setLikedCourses={setLikedCourses} />)
+        })
+      }
     </div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;
