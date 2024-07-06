@@ -5,11 +5,11 @@ function App() {
 
   const[formData, setFormData] = useState(
     {
-    firstname: "", 
+    firstname: "",
     lastname:'',
-    email:"", 
+    email:"",
     country: '',
-    city: '', 
+    city: '',
     address: "",
     state: "",
     postalcode: '',
@@ -41,11 +41,11 @@ function App() {
       alert("Saved Successfull - Your Data \n" + formData)
       console.log(formData);
       setFormData({
-    firstname: "", 
+    firstname: "",
     lastname:'',
-    email:"", 
+    email:"",
     country: '',
-    city: '', 
+    city: '',
     address: "",
     state: "",
     postalcode: '',
@@ -62,7 +62,7 @@ function App() {
       <form className="space-y-2" onSubmit={submitHandler}>
         <label htmlFor='fistname'
         className="text-gray-900 leading-6 text-sm font-medium"
-        >Fist Name</label><br/>
+        >First Name</label><br/>
         <input
           type='text'
           placeholder='Arushi'
@@ -291,7 +291,7 @@ function App() {
                 </div>
 
 
-            
+
             </div>
           </fieldset>
 
