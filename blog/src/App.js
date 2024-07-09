@@ -4,6 +4,7 @@ import Blog from './components/Blog';
 import Header from './components/Header';
 import Pageination from './components/Pageination';
 import { AppContext } from './context/AppContext';
+import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
 
@@ -15,11 +16,13 @@ export default function App() {
 
 
   return (
-    <div className='w-full h-full flex flex-col gap-y-1 justify-center items-center'>
-    <Header/>
-    <Blog/>
-    <Pageination/>
-    </div>
+   <Routes>
+    <Route path='/' element={<Home/>} />
+    <Route path='/blog/:blogId' element={<BlogPage/>} />
+    <Route path='/tags/:tag' element={<TagPage/>} />
+    <Route path='/categorie/:category' element={<CategoryPage/>} />
+
+   </Routes>
     
   );
 }
