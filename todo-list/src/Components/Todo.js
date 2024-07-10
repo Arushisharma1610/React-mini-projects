@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import "../index.css";
 
 const Todo = () => {
-  const [initial, setInitial] = useState(""); 
-  const [data, setData] = useState([]); 
-  const [isEditing, setIsEditing] = useState(false); 
-  const [currentIndex, setCurrentIndex] = useState(null); 
+  const [initial, setInitial] = useState("");
+  const [data, setData] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
   const [currentValue, setCurrentValue] = useState("");
 
   // Function to handle input changes
